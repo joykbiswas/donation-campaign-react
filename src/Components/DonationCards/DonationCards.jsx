@@ -15,7 +15,7 @@ const DonationCards = ({card}) => {
         textColor:'text-blue-600',
     },
     health:{
-        backgroundColor:'bg-green-100',
+        backgroundColor:'bg-green-200',
         textColor:'text-green-600',
     },
     education:{
@@ -29,13 +29,11 @@ const DonationCards = ({card}) => {
     textColor:'text-white',
   }
   
-  const handleShowDetails=()=>{
-    console.log('click me ');
-  }
+  
 
-  console.log(card);
+  // console.log(card);
   return (
-    <div className={``} onClick={handleShowDetails}>
+    <div className={``}>
        <Link to={`/card/${id}`}>
        <h2 className="text-3xl text-center ">donation card</h2>
       <div className={`card  ${styles.backgroundColor} shadow-xl `}>

@@ -8,14 +8,14 @@ const Card = () => {
   const { id } = useParams();
   
   const donations = useLoaderData();
-  console.log(donations);
+  // console.log(donations);
 
   useEffect(() => {
     const findDonation = donations.find((card) => card.id === id);
     // console.log(findDonation);
     setDonation(findDonation)
   }, [donations, id]);
-  console.log(donation);
+  // console.log(donation);
   return (
     <div className="h-[80vh] flex items-center justify-center">
       <DonationCard donation={donation}></DonationCard>
