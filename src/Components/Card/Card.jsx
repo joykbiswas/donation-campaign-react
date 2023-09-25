@@ -1,28 +1,26 @@
-import PropTypes from 'prop-types'; 
+import { useEffect, useState } from "react";
+import { useLoaderData, useParams } from "react-router-dom";
+import DonationCard from "../DonationCard/DonationCard";
 
-const Card = ({ card }) => {
-    const{id,img,title,category} = card;
-  console.log(card);
+const Card = () => {
+  const [donation, setDonation] = useState({});
+  
+  const { id } = useParams();
+  
+  const donations = useLoaderData();
+  console.log(donations);
+
+  useEffect(() => {
+    const findDonation = donations.find((card) => card.id === id);
+    // console.log(findDonation);
+    setDonation(findDonation)
+  }, [donations, id]);
+  console.log(donation);
   return (
-    <div>
-      <div className="card  bg-base-100 shadow-xl ">
-        <figure>
-          <img
-            src={img}
-            alt="Shoes"
-          />
-        </figure>
-        <div className="card-body">
-          <h2 className="card-title">{category}</h2>
-          <p>{title}</p>
-         
-        </div>
-      </div>
+    <div className="h-[80vh] flex items-center justify-center">
+      <DonationCard donation={donation}></DonationCard>
     </div>
   );
 };
 
-Card.propTypes={
-    card:PropTypes.array
-}
 export default Card;
