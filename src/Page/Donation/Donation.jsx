@@ -1,10 +1,44 @@
+import PropTypes from 'prop-types';
+
 const Donation = ({ donation }) => {
-  const {  img, title, category } = donation;
-  console.log(" only donation card");
+  const {  img, title, category, price } = donation;
+  
+
+
+
+  const categoryStyles ={
+    food:{
+        backgroundColor: 'bg-red-100',
+        btnBackgroundColor: 'bg-red-400',
+        textColor:'text-red-600',
+    },
+    clothing:{
+        backgroundColor:'bg-blue-100',
+        btnBackgroundColor: 'bg-blue-400',
+        textColor:'text-blue-600',
+    },
+    health:{
+        backgroundColor:'bg-green-100',
+        btnBackgroundColor: 'bg-green-400',
+        textColor:'text-green-600',
+    },
+    education:{
+        backgroundColor:'bg-yellow-100',
+        btnBackgroundColor: 'bg-yellow-400',
+        textColor:'text-yellow-600',
+    },
+    
+  }
+  const styles = categoryStyles[category] || {
+    backgroundColor:'bg-gray-400',
+    btnBackgroundColor: 'bg-gray-400',
+    textColor:'text-white',
+  }
+
   return (
     <div>
-      <h2>Donation</h2>
-      <div className="relative flex w-full max-w-[48rem] flex-row rounded-xl bg-white bg-clip-border text-gray-700 shadow-md">
+      
+      <div className={`relative flex  max-w-[48rem] flex-row rounded-xl   text-gray-700 shadow-md  ${styles.backgroundColor}`}>
         <div className="relative m-0 w-2/5 shrink-0 overflow-hidden rounded-xl rounded-r-none bg-white bg-clip-border text-gray-700">
           <img
             src={img}
@@ -12,37 +46,24 @@ const Donation = ({ donation }) => {
             className="h-full w-full object-cover"
           />
         </div>
-        <div className="p-6">
-          <h6 className="mb-4 block font-sans text-base font-semibold uppercase leading-relaxed tracking-normal text-pink-500 antialiased">
+        <div className={`p-6 ${styles.backgroundColor}`}>
+        <p className={`mb-2 block font-sans text-lg font-normal leading-relaxed ${styles.textColor} antialiased`}>
+            {category}
+          </p>
+          <h6 className={`text-2xl ${styles.textColor}`}>
            {title}
           </h6>
-          <h4 className="mb-2 block font-sans text-2xl font-semibold leading-snug tracking-normal text-blue-gray-900 antialiased">
-            Lyft launching cross-platform service this week
-          </h4>
-          <p className="mb-8 block font-sans text-base font-normal leading-relaxed text-gray-700 antialiased">
-            {category}
+          
+          <p className={`${styles.textColor} mb-4 block font-sans  font-normal leading-relaxed  antialiased`}>
+            ${price}
           </p>
           <a className="inline-block" href="#">
             <button
-              className="flex select-none items-center gap-2 rounded-lg py-3 px-6 text-center align-middle font-sans text-xs font-bold uppercase text-pink-500 transition-all hover:bg-pink-500/10 active:bg-pink-500/30 disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none"
+              className={`flex p-2 rounded-xl text-white ${styles.btnBackgroundColor}`}
               type="button"
             >
-              Learn More
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke-width="2"
-                stroke="currentColor"
-                aria-hidden="true"
-                className="h-4 w-4"
-              >
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  d="M17.25 8.25L21 12m0 0l-3.75 3.75M21 12H3"
-                ></path>
-              </svg>
+              View Details
+              
             </button>
           </a>
         </div>
@@ -50,5 +71,9 @@ const Donation = ({ donation }) => {
     </div>
   );
 };
+
+Donation.propTypes={
+  donation:PropTypes.array
+}
 
 export default Donation;

@@ -35,7 +35,7 @@ const DonationCards = ({card}) => {
   return (
     <div className={``}>
        <Link to={`/card/${id}`}>
-       <h2 className="text-3xl text-center ">donation card</h2>
+       
       <div className={`card  ${styles.backgroundColor} shadow-xl `}>
         <figure>
           <img

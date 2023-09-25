@@ -6,6 +6,7 @@ const Donations = () => {
 
     const [donations,setDonations] =useState([])
     const [noFound, setNoFound] = useState(false)
+    const [isShow, setIsShow] =useState(false)
     useEffect(()=>{
         const donationItems = JSON.parse(localStorage.getItem('donations'))
        if(donationItems){
@@ -16,17 +17,26 @@ const Donations = () => {
        }
        
     },[])
-
-    console.log(donations);
+    console.log(isShow);
+    // console.log(donations);
     return (
-        <div>
+        <div >
             {
                 noFound ? <p>{noFound}</p> 
                 :<div>
-                    <div>
+                    <div className="grid grid-cols-1 md:grid-cols-2 m-2 gap-8">
                         {
-                            donations.map(donation=><Donation key={donation.id} donation={donation}></Donation>)
+                            isShow ? donations.map(donation=><Donation key={donation.id} donation={donation}>                           
+                            </Donation>) :
+                            donations.slice(0,4).map(donation=><Donation key={donation.id} donation={donation}></Donation>)
                         }
+                    </div>
+                    <div className="text-center ">
+                    {
+                        donations.length>4 && <button onClick={()=>setIsShow(!isShow)} className="bg-orange-300 p-2  m-4" >
+                        {isShow ? " See less": "See more"}
+                     </button>
+                    }
                     </div>
                 </div>
             }

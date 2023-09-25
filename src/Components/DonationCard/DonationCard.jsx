@@ -2,8 +2,8 @@
 import PropTypes from 'prop-types';
 import swal from 'sweetalert';
 const DonationCard = ({donation}) => {
-    const{id,img,title,category} = donation;
-    console.log(donation);
+    const{id,img,title,category, description} = donation;
+    // console.log(donation);
 
     const categoryStyles ={
       food:{
@@ -47,42 +47,33 @@ const DonationCard = ({donation}) => {
         if(!isExists){
           addedDonation.push(...donationItems,donation)
           localStorage.setItem('donations',JSON.stringify(addedDonation))
-        
+          swal("Good job!", "Your Donation done!", "success");
         }
         else{
           swal("Good job!", "You have already donation!", "error");
         }
 
-        // const isExists = donationItems.find(donation =>donation.id ===id)
-        // if(!isExists){
-        //   addedDonation.push(...donationItems,donation)
-        //   localStorage.setItem('donations',JSON.stringify(addedDonation))
-          
-        // }else{
-        //   swal("Good job!", "Your donation already done!", "success");
-        // }
-        
-        
-        
         
       }
       
     }
   return (
     <div>
-      <h2>donation card</h2>
-      <div className={`card w-96   ${styles.backgroundColor} shadow-xl`}>
+      
+      <div className={`card w-full   ${styles.backgroundColor} shadow-xl`}>
         <div className=''>
         <figure className='relative'>
-          <img src={img} alt="Shoes" />
+          <img className=' w-full' src={img} alt="Shoes" />
         </figure>
-        <div className="absolute bottom-28 left-6 bg-gray-400 p-3 w ml-3 w-[314px] card-actions justify-start pl-9">
+        <div className="absolute bottom-40 left-6 bg-base-300 p-6 -ml-6  w-full  card-actions justify-start ">
             <button onClick={handleShowDonation} className={`p-2 rounded-lg text-white  ${styles.btnBackgroundColor} `}>Buy Now</button>
           </div>
         </div>
         <div className={`card-body ${styles.textColor} `}>
-          <h2 className="card-title">{title}</h2>
           <p className=''>{category}</p>
+          <h2 className="card-title">{title}</h2>
+          <h3>{description}</h3>
+          
           
         </div>
       </div>
