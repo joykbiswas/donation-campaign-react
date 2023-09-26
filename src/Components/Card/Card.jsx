@@ -8,7 +8,7 @@ const Card = () => {
   const { id } = useParams();
   
   const donations = useLoaderData();
-  // console.log(donations);
+  console.log(donations);
 
   useEffect(() => {
     const findDonation = donations.find((card) => card.id === id);
