@@ -22,7 +22,7 @@ const Donations = () => {
     return (
         <div >
             {
-                noFound ? <p>{noFound}</p> 
+                noFound ? <p className="h-[80vh] flex justify-center items-center text-2xl">{noFound}</p> 
                 :<div>
                     <div className="grid grid-cols-1 md:grid-cols-2 m-2 gap-8">
                         {

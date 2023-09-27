@@ -2,7 +2,7 @@
 import PropTypes from 'prop-types';
 import swal from 'sweetalert';
 const DonationCard = ({donation}) => {
-    const{id,img,title,category, description} = donation;
+    const{id,img,title,category, description, price} = donation;
     // console.log(donation);
 
     const categoryStyles ={
@@ -66,7 +66,8 @@ const DonationCard = ({donation}) => {
           <img className=' w-full' src={img} alt="Shoes" />
         </figure>
         <div className="absolute bottom-40 left-6 bg-base-300 p-6 -ml-6  w-full  card-actions justify-start ">
-            <button onClick={handleShowDonation} className={`p-2 rounded-lg text-white  ${styles.btnBackgroundColor} `}>Buy Now</button>
+            <button onClick={handleShowDonation} className={`p-2 rounded-lg text-white 
+             ${styles.btnBackgroundColor} `}> Donate ${price}</button>
           </div>
         </div>
         <div className={`card-body ${styles.textColor} `}>

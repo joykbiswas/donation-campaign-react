@@ -1,4 +1,13 @@
-const Banner = () => {
+import PropTypes from 'prop-types'; 
+import {  useState } from "react";
+
+const Banner = ({setSearchData}) => {
+  const [search, setSearch] = useState('')
+  
+  
+  const handleSearch=() =>{
+    setSearchData(search);
+  }
   return (
     <div>
       <div className="relative grid h-[20rem] w-full max-w-[100rem] flex-col items-end justify-center overflow-hidden rounded-xl bg-white bg-clip-border text-center text-gray-700">
@@ -8,13 +17,17 @@ const Banner = () => {
         >
           <div className="to-bg-black-10 absolute inset-0 h-full w-full bg-gradient-to-t from-white/80 via-white/70"></div>
         </div>
-        <div className="relative p-6 py-14 px-6 md:px-12">
+        <div className="relative p-6 py-14 px-6 md:px-12 ">
             <h2 className="text-2xl ">I Grow By Helping People In Need</h2>
-          <input
+         <div className="flex">
+         <input 
             type="text"
             placeholder="Type here"
             className="input input-bordered w-full max-w-xs"
+            onChange={(e)=>setSearch(e.target.value)}
           />
+          <button className="btn" onClick={()=>handleSearch()}>search</button>
+         </div>
         </div>
       </div>
 
@@ -22,4 +35,8 @@ const Banner = () => {
   );
 };
 
+Banner.propTypes={
+  setSearchData:PropTypes.array,
+  
+}
 export default Banner;

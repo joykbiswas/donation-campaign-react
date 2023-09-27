@@ -5,12 +5,14 @@ import Donations from "../Page/Donations/Donations";
 import Statistics from "../Page/Statistics/Statistics";
 import Cards from "../Components/Cards/Cards";
 import Card from "../Components/Card/Card";
+import ErrorPage from "../Page/ErrorPage/ErrorPage";
 
 
 const myCreateRouter = createBrowserRouter([
     {
         path:'/',
         element:<MainLayout></MainLayout>,
+        errorElement:<ErrorPage></ErrorPage>,
         
         children:[
             {
