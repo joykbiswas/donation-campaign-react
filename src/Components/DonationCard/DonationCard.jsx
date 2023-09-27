@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import swal from 'sweetalert';
 const DonationCard = ({donation}) => {
     const{id,img,title,category, description, price} = donation;
-    // console.log(donation);
+    
 
     const categoryStyles ={
       food:{

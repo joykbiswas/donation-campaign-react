@@ -3,7 +3,6 @@ import MainLayout from "../MainLayout/MainLayout";
 import Home from "../Page/Home/Home";
 import Donations from "../Page/Donations/Donations";
 import Statistics from "../Page/Statistics/Statistics";
-import Cards from "../Components/Cards/Cards";
 import Card from "../Components/Card/Card";
 import ErrorPage from "../Page/ErrorPage/ErrorPage";
 

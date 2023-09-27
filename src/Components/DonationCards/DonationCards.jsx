@@ -30,9 +30,6 @@ const DonationCards = ({card}) => {
     textColor:'text-white',
   }
   
-  
-
-  // console.log(card);
   return (
     <div className={``}>
        <Link to={`/card/${id}`}>
@@ -41,7 +38,7 @@ const DonationCards = ({card}) => {
         <figure>
           <img
             src={img}
-            alt="Shoes"
+            alt="img"
           />
         </figure>
         <div className={`card-body ${styles.textColor} `}>

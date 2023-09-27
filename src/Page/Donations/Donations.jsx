@@ -17,8 +17,7 @@ const Donations = () => {
        }
        
     },[])
-    console.log(isShow);
-    // console.log(donations);
+    
     return (
         <div >
             {
@@ -33,7 +32,7 @@ const Donations = () => {
                     </div>
                     <div className="text-center ">
                     {
-                        donations.length>4 && <button onClick={()=>setIsShow(!isShow)} className="bg-orange-300 p-2  m-4" >
+                        donations.length>4 && <button onClick={()=>setIsShow(!isShow)} className="bg-orange-300 p-3 rounded-lg  m-4" >
                         {isShow ? " See less": "See more"}
                      </button>
                     }

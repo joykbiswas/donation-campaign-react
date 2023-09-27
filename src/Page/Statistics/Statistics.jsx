@@ -46,11 +46,7 @@ const Statistics = () => {
   const apiDataPercentage = localDataLength === 0 ? 100 : ((apiDataLength - localDataLength)) * 100;
   const localDataPercentage = (localDataLength) * 100;
 
-  console.log(apiDataPercentage);
-
-  console.log(apiDataLength);
-  console.log(localDataLength);
-
+  
   const chartData = [
     { name: "API Data", value: apiDataPercentage },
     { name: "Local Data", value: localDataPercentage },
